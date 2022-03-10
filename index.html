@@ -2,19 +2,27 @@
     <html>
 
         <head>
-
+            <script type="text/javascript" src="main.js"></script>
             <title> Base Calculator </title>
         </head>
         <body>
 
             <form>
-                Enter the base here:
-                <input type="text" name="base_input">
+                Enter the base here:<br>
+                <input type="text" id="base_input" name="TextBox1"><br>
+                Important: the base must not have repeated characters and also contain only characters between 0 to 9 and A to Z (uppercase).
             </form>
+            <br>
             <form>
-                Enter the number in base 10 to conver:
-                <input type="text" name="number_input">
+                Enter the number in base 10 to convert:<br>
+                <input type="text" id="number_input" name="TextBox2">
             </form>
-            <button type="submit" onclick="alert()">Calcular</button>
+            <br>
+            <button type="button" onclick="main()">Calcular</button>
+            <br>
+            <form>
+                Resultado:<br>
+                <input type="text" id="result" name="TextBox3">
+            </form>
         </body>
     </html>
