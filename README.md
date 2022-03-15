@@ -2,6 +2,8 @@
 
 Base Calculator in TypeScript
 
+See the project running!!! (https://juliobillet.github.io/Base_Calculator/)
+
 This is a study I made to get to know TypeScript a little more.
 Since I did this calculator using C a few weeks ago, which could run only in terminal, I challenged myself to do it using a new programming language. So I chose TypeScript, that I was sure from the beginning that it would be a real challenge seeing that I knew nothing of it.
 
