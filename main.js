@@ -1,39 +1,47 @@
-// const base_input = "eee"
-var result = document.getElementById("result");
-function verify_base_errors(base_input) {
-    var i;
-    var j;
-    var str_len;
-    i = 0;
-    while (base_input[i] != '\0') {
-        i++;
+"use strict";
+let g_final_result = "";
+function is_valid_base(base_input) {
+    if (base_input.length < 2)
+        return false;
+    for (const i of base_input) {
+        if (!i.match(/[a-z]|[0-9]/i))
+            return false;
     }
-    str_len = i;
-    i = 0;
-    if (base_input[i] == '\0' || str_len == 1)
-        return true;
-    while (base_input[i] != '\0') {
-        if (base_input[i] == '+' || base_input[i] == '-')
-            return true;
-        j = 1;
-        while (base_input[i + j] != '\0') {
-            if (base_input[i + j] == base_input[i])
-                return true;
-            j++;
-        }
-        i++;
-    }
-    return false;
+    if ([...(new Set(base_input))].length !== base_input.length)
+        return false;
+    return true;
 }
-function calculate_base(base_input) {
-    if (verify_base_errors(base_input)) {
-        return "Base invalida!";
+function is_valid_number(input) {
+    if (input.includes('.'))
+        return false;
+    if (input.length < 1)
+        return false;
+    return !isNaN(Number(input));
+}
+function calculate_base(base_input, number) {
+    if (number < 0) {
+        g_final_result = g_final_result + "-";
+        number = (number * (-1));
     }
-    else
-        return "Base valida!";
+    if (number < base_input.length) {
+        g_final_result = g_final_result + base_input.charAt(number % base_input.length);
+        return g_final_result;
+    }
+    else {
+        calculate_base(base_input, (number / base_input.length));
+        calculate_base(base_input, (number % base_input.length));
+    }
+    return g_final_result;
 }
 function main() {
-    var base_input = document.getElementById("base_input");
-    // const number_input = (<HTMLInputElement>document.getElementById("number_input")).value
-    result.value = "que odio porra";
+    const base_input = document.getElementById("base_input").value;
+    const number_input = document.getElementById("number_input").value;
+    let result = document.getElementById("result");
+    g_final_result = "";
+    if (!is_valid_base(base_input))
+        return result.value = "Invalid base!";
+    else if (!is_valid_number(number_input))
+        return result.value = "Invalid number!";
+    else
+        return result.value = calculate_base(base_input, parseInt(number_input));
 }

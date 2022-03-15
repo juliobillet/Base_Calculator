@@ -1,28 +1,48 @@
 <!DOCTYPE html>
     <html>
-
+        <link rel="stylesheet" href="reset.css">
+        <link rel="stylesheet" href="style.css">
         <head>
-            <script type="text/javascript" src="main.js"></script>
             <title> Base Calculator </title>
         </head>
         <body>
-
-            <form>
-                Enter the base here:<br>
-                <input type="text" id="base_input" name="TextBox1"><br>
-                Important: the base must not have repeated characters and also contain only characters between 0 to 9 and A to Z (uppercase).
-            </form>
-            <br>
-            <form>
-                Enter the number in base 10 to convert:<br>
-                <input type="text" id="number_input" name="TextBox2">
-            </form>
-            <br>
-            <button type="button" onclick="main()">Calcular</button>
-            <br>
-            <form>
-                Resultado:<br>
-                <input type="text" id="result" name="TextBox3">
-            </form>
+            <header>
+                <div>
+                    <h1>Base Calculator</h1>
+                </div>
+            </header>
+            <div class="container">
+                <form class="form">
+                    <p class="text_next_tooltip">Enter the base here:
+                        <div class="tooltip">?<span class="tooltiptext">
+                            Important:
+                            the base must not have repeated characters and also contain only characters between 0 to 9 and/or A to Z.
+                            Examples: 01234 or abcde
+                        </span></div>
+                    </p>
+                    <input class="textbox" type="text" placeholder="insert a base" id="base_input" name="TextBox1">
+                </form>
+                <form class="form">
+                    <p class="text_next_tooltip">Enter the number in base 10 to convert:
+                        <div class="tooltip">?<span class="tooltiptext">A decimal base number can only consist of digits between: 0123456789</span></div>
+                    </p>
+                    <input class="textbox" type="text" placeholder="insert a number in decimal base" id="number_input" name="TextBox2">
+                </form>
+                <button class="button" type="button" onclick="main()">Calculate</button>
+                <form class="form">
+                    <p>Result:</p>
+                    <input class="textbox" type="text" placeholder="the result will be shown here" id="result" name="TextBox3">
+                </form>
+            </div>
         </body>
+        <footer class="footer">
+            <p>Developed by: 
+                 <a href="https://github.com/juliobillet">Júlio Billet</a> 
+                 with the awesome help of my friends 
+                <a href="https://github.com/GMarroquio">Guilherme Marroquio</a>
+                and
+                <a href="https://github.com/daniel-srj">Daniel Sóstenes</a>.
+            </p>
+        </footer>
+        <script type="text/javascript" src="main.js"></script>
     </html>
